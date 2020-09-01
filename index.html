@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <!-- JAVAScript SDK -->
+  <script type="text/javascript" src="js/config.js"></script>
+  <script type="text/javascript" src="js/register.js"></script>
+  <script type="text/javascript" src="js/amazon-cognito-auth.min.js"></script>
+  <script type="text/javascript" src="dist/aws-sdk.js"></script>
+  <script type="text/javascript" src="dist/aws-sdk.min.js"></script>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+
+  <title>The WaywardDoor</title>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <p class="projectName"> the_wayward_door </p>
+    <button class="strtbtn" onclick="document.getElementById('id01').style.display='block'" hover:"">Let's Get Started...</button>
+  </div>
+
+  <!-- START Form handler -->
+  <div id="id01" class="modal">
+    <form class="modal-content animate" action="" method="post">
+      <div class="imgcontainer">
+        <!-- CLOSE BTN -->
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <!-- Image Placeholder -->
+        <img src="img/icon.png" alt="Avatar" class="avatar">
+      </div>
+
+      <!-- FORM DATA -->
+      <div class="container">
+        <!-- Placeholder for verification message -->
+        <h1 class="h3 mb-3 font-weight-normal" id="titleheader"></h1>
+
+        <!-- USERNAME -->
+        <div id="uname">
+          <label for="uname"><b>Username</b><label>
+          <input type="text" placeholder="Enter Username" id="personalName" name="uname" pattern=".*" required>
+        </div>
+        <!-- EMAIL -->
+        <label for="email"><b>Email</b><label>
+        <input type="email" placeholder="Enter a Valid Email" id="emailInput" name="email"  pattern=".*" required>
+        <!-- PASSWORD -->
+        <label for="psw"><b>Password</b><label>
+        <input type="password" placeholder="Enter Password" name="psw" id="psw" pattern=".*" required>
+
+        <div id="vpsw">
+          <br>
+          <label for="vpsw"><b>Verify Password</b><label>
+          <input type="password" placeholder="Verify Password" id="confirmpsw" name="vpsw" pattern=".*" required>
+        </div>
+        <br>
+        <label>
+          <input type="checkbox" name="remember">Remember me
+        </label>
+        <input type="checkbox" onclick="myFunction()">Show Password
+        <!-- Login btn SUBMIT -->
+        <button type="submit" id="nusr" onclick="registerButton()">submit</button>
+        <button type="submit" class="loginbtn">Login</button>
+        <button type="button" id="regbtn">New user</button>
+
+      </div>
+
+      <!-- FORM Footer -->
+      <div class="container" style="background-color:#d3d3d3">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <!-- PWD RESET -->
+        <span class="psw" style="color:white"><a href="#">Forgot Password?</a></span>
+      </div>
+    </form>
+  </div>
+<!-- END FORM HANDLER -->
+
+<!-- Modal FUNCTION -->
+<script>
+  //get the Modal
+  var modal = document.getElementById('id01');
+  //when the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+<script>
+      $(document).ready(function() {
+      $("#regbtn").click(function() {
+        $("#uname").toggle();
+        $("#vpsw").toggle();
+        $("#nusr").toggle();
+    });
+  });
+</script>
+
+<script>
+// function to enable show and hide password feature.
+function myFunction() {
+  var x = document.getElementById("psw");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+
+</body>
+</html>
